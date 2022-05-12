@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\StorageController;
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/hello', [HelloController::class, 'index']);
+Route::get('/configtest', [ConfigController::class, 'index']);
+Route::get('/storagetest', [StorageController::class, 'index']);
+Route::get('/storagetest/{msg}', [StorageController::class, 'other']);
+
+Route::get('/requesttest', [RequestController::class, 'index']);
